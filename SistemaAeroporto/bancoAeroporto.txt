@@ -1,0 +1,45 @@
+CREATE TABLE aeroporto(
+    id_aeroporto INT NOT NULL PRIMARY KEY 
+               GENERATED always AS IDENTITY(START WITH 1, increment BY 1),
+    nome VARCHAR(20),
+    cidade VARCHAR(20),
+    destino VARCHAR(20)
+);
+
+CREATE TABLE passagem(
+    id_passagem INT NOT NULL PRIMARY KEY 
+               GENERATED always AS IDENTITY(START WITH 1, increment BY 1),
+    destino VARCHAR(10),
+    horario DATETIME,
+    poltrona VARCHAR(10),
+    plataforma VARCHAR(10),
+    aviao VARCHAR(10)
+);
+
+CREATE TABLE usuario(
+    id_usuario INT NOT NULL PRIMARY KEY 
+               GENERATED always AS IDENTITY(START WITH 1, increment BY 1),
+    nome VARCHAR(10),
+    endereco VARCHAR(9),
+    cpf VARCHAR(12),
+    rg VARCHAR(12)
+);
+
+CREATE TABLE aviao(
+    id_aviao INT NOT NULL PRIMARY KEY 
+               GENERATED always AS IDENTITY(START WITH 1, increment BY 1),
+    modelo VARCHAR(20),
+    capacidade VARCHAR(20)
+);
+
+
+
+INSERT INTO usuario(nome, endereco, cpf, rg) VALUES('Fabio','Rua','cpf','rg'),('Mad','OtraRua','Otrocpf','Otrorg');
+INSERT INTO aeroporto(nome, cidade, destino) VALUES('Aeroporto','SaoPaulo','Campinas');
+INSERT INTO passagem(destino, horario, poltrona, plataforma, aviao) VALUES('SaoPaulo','2015-07-11 12:40:22','acento','plataforma','aviao');
+INSERT INTO aviao(modelo, capacidade) VALUES('Modelo','capacidade');
+
+SELECT * FROM usuario;
+SELECT * FROM aeroporto;
+SELECT * FROM aviao;
+SELECT * FROM passagem;
